@@ -56,12 +56,10 @@ public class EntryService {
             throw new IllegalArgumentException("Invalid language: " + language);
         }
 
-        // If descending order is needed, reverse the comparator
         if (!ascending) {
             comparator = comparator.reversed();
         }
 
-        // Sort the entries using the comparator
         entries.sort(comparator);
 
         return entries;

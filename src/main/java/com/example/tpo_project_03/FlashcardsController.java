@@ -32,7 +32,6 @@ public class FlashcardsController {
             displayProfile.display(entry);
         }
     }
-    // Delegate to the service for search
     public void searchEntries(String term) {
         List<Entry> entries = entryService.searchEntries(term);
         if (entries.isEmpty()) {
@@ -44,7 +43,6 @@ public class FlashcardsController {
         }
     }
 
-    // Delegate to the service for sorting
     public void sortEntries(String language, String order) {
         List<Entry> sortedEntries = entryService.sortEntries(language, order);
         if (sortedEntries.isEmpty()) {
@@ -56,13 +54,11 @@ public class FlashcardsController {
         }
     }
 
-    // Delegate to the service for deletion
     public void deleteEntry(long id) {
         entryService.deleteEntry(id);
         System.out.println("Entry with ID " + id + " has been deleted.");
     }
 
-    // Delegate to the service for modification
     public void modifyEntry(long id, String polish, String german, String english) {
         entryService.updateEntry(id, polish, german, english);
         System.out.println("Entry with ID " + id + " has been modified.");
@@ -71,7 +67,7 @@ public class FlashcardsController {
     public void startTest() {
         Scanner scanner = new Scanner(System.in);
 
-        List<Entry> words = entryService.getAllEntries();  // Fetch from DB
+        List<Entry> words = entryService.getAllEntries();
         if (words.isEmpty()) {
             System.out.println("No words available!");
             return;
@@ -97,7 +93,6 @@ public class FlashcardsController {
             System.out.println("Incorrect german, correct: " + randomEntry.getGerman());
     }
 
-    // Method to handle the menu options
     public void runApplicationConsole() {
         Scanner scanner = new Scanner(System.in);
 
@@ -105,7 +100,7 @@ public class FlashcardsController {
             System.out.println("\n1. Add Entry\n2. Display Entries\n3. Start Test\n4. Search Entries\n5. Sort Entries\n6. Delete Entry\n7. Modify Entry\n8. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -118,7 +113,7 @@ public class FlashcardsController {
                     System.out.print("Enter English word: ");
                     String english = scanner.nextLine().trim();
 
-                    addEntry(polish, german, english);  // Delegate to addEntry method
+                    addEntry(polish, german, english);
                     break;
                 case 2:
                     displayEntries();

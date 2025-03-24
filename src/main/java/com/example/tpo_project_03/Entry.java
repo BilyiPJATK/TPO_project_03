@@ -9,13 +9,12 @@ import jakarta.persistence.Id;
 public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // This will be the primary key
+    private Long id;
 
     private String polish;
     private String german;
     private String english;
 
-    // Default constructor needed by JPA
     public Entry() {
     }
 
