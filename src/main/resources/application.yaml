@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: tpo_03
+  h2:
+    console:
+      path: /my-console
+      enabled: true
+  datasource:
+    url: jdbc:h2:file:./db/flashcards
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  profiles:
+    active: Normal
